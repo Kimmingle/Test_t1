@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FF000000</item>
+        <item name="colorPrimaryDark">#FF000000</item>
+        <item name="android:textViewStyle">@style/sffTextView</item>
+        <item name="android:buttonStyle">@style/sffButton</item>
+
+    </style>
+
+    <style name="sffTextView" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/sff</item>
+    </style>
+    <style name="sffButton" parent="android:Widget.Button">
+        <item name="android:fontFamily">@font/sff</item>
+    </style>
+
+
+</resources>

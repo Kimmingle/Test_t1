@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_btn1">
+
+    <fragment
+        android:id="@+id/navigation_btn1"
+        android:name="com.example.test_t1.button1Fragment"
+        android:label="button1"
+        tools:layout="@layout/fragment_btn1" >
+        <action
+            android:id="@+id/action_navigation_btn1_to_navigation_btn2"
+            app:destination="@id/navigation_btn2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_btn2"
+        android:name="com.example.test_t1.button2Fragment"
+        android:label="button2"
+        tools:layout="@layout/fragment_btn2" >
+        <action
+            android:id="@+id/action_navigation_btn2_to_navigation_btn3"
+            app:destination="@id/navigation_btn3"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_btn3"
+        android:name="com.example.test_t1.button3Fragment"
+        android:label="button3"
+        tools:layout="@layout/fragment_btn3" />
+
+    <fragment
+        android:id="@+id/navigation_btn4"
+        android:name="com.example.test_t1.button4Fragment"
+        android:label="button4"
+        tools:layout="@layout/fragment_btn4"
+        />
+    <fragment
+        android:id="@+id/navigation_btn5"
+        android:name="com.example.test_t1.button5Fragment"
+        android:label="button5"
+        tools:layout="@layout/fragment_btn5"
+        />
+
+</navigation>
