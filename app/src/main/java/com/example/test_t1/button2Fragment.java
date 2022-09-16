@@ -19,12 +19,15 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.test_t1.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.sanojpunchihewa.glowbutton.GlowButton;
 
 import java.io.File;
 
@@ -36,10 +39,17 @@ public class button2Fragment extends Fragment
     private Button button2;
     private Button button3;
     private Button button4;
+
+    private Button glowButton;
+    private Button glowButton2;
+    private Button glowButton3;
+    private Button glowButton4;
+
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
     private TextView textView4;
+    private TextView textView;
     MainActivity mainActivity;
 
     @Override
@@ -50,14 +60,24 @@ public class button2Fragment extends Fragment
          mainActivity = new MainActivity();
         view= inflater.inflate(R.layout.fragment_btn2,container,false);
 
-        button1 =(Button) view.findViewById(R.id.button1);
+        /*button1 =(Button) view.findViewById(R.id.button1);
         button2 =(Button) view.findViewById(R.id.button2);
         button3 =(Button) view.findViewById(R.id.button3);
-        button4 =(Button) view.findViewById(R.id.button4);
+        button4 =(Button) view.findViewById(R.id.button4);*/
+
+        glowButton =(Button) view.findViewById(R.id.glowButton1);
+        glowButton2 =(Button) view.findViewById(R.id.glowButton2);
+        glowButton3 =(Button) view.findViewById(R.id.glowButton3);
+        glowButton4 =(Button) view.findViewById(R.id.glowButton4);
+
+
 
         textView1 = (TextView) view.findViewById(R.id.textView1);
         textView2 = (TextView) view.findViewById(R.id.textView2);
         textView3 = (TextView) view.findViewById(R.id.textView3);
+        textView = (TextView) view.findViewById(R.id.textView);
+
+
 
         if(getArguments()!= null)
         {
@@ -86,22 +106,109 @@ public class button2Fragment extends Fragment
 
         BottomNavigationView bottomNavigationView = view.findViewById(R.id.nav_view);
 
+
+
+        Button button1= view.findViewById(R.id.glowButton1);
+
         button1.setOnClickListener(new View.OnClickListener()
         {
+            //Button button1= view.findViewById(R.id.button1);
+            GlowButton glowButton = view.findViewById(R.id.glowButton1);
+
             @Override
             public void onClick(View view)
             {
+                //change_color(button1);
+                textView.setVisibility(View.VISIBLE);    //텍스트뷰(안전도)
+
+                glowButton.setGlowColor(Color.RED);
+
+                //neon();
+
                 //1.프래그먼트생성,transcation객체 설정, replace하고 commit
                 //Navigation.findNavController(view).navigate(R.id.action_navigation_btn2_to_navigation_btn3); //여기 그냥 3으로 이동..
                 //bottomNavigationView.getMenu().findItem(R.id.navigation_btn3).setChecked(true); 메뉴를 선택한효과 -> 이미지만
 //               System.out.println("확인"+bottomNavigationView.getMaxItemCount());
 
 //               bottomNavigationView.performClick(); //해당view를 클릭한것같은 효과
-
-
-
             }
         });
+
+
+
+
+
+
+
+        //glowButton.setVisibility(View.GONE);
+        //glowButton.setGlowColor(Color.RED);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*button1.setOnClickListener(new View.OnClickListener()     //클릭 리스너 - 클릭 가능
+        {
+            Button button = view.findViewById(R.id.glowButton1);
+
+            @Override
+            public void onClick(View view)   // 버튼 1 클릭시에 색 바꾸고 텍스트 나오게(안전도 넣을꺼)
+            {
+
+                int i = 1;
+
+                if (i == 0) {
+                    glowButton.setGlowColor(Color.RED);
+                }else {
+                    glowButton.setGlowColor(Color.GREEN);
+                }
+
+            }});*/
+
+
+        /*button2.setOnClickListener(new View.OnClickListener()     //클릭 리스너 - 클릭 가능
+        {
+            @Override
+            public void onClick(View view)   // 버튼 1 클릭시에 색 바꾸고 텍스트 나오게(안전도 넣을꺼)
+            {
+                change_color(button2);
+                textView.setVisibility(View.VISIBLE);
+                glowButton2.setVisibility(Button.VISIBLE);
+            }});*/
+
+
+        /*button3.setOnClickListener(new View.OnClickListener()     //클릭 리스너 - 클릭 가능
+        {
+            @Override
+            public void onClick(View view)   // 버튼 1 클릭시에 색 바꾸고 텍스트 나오게(안전도 넣을꺼)
+            {
+                change_color(button3);
+                textView.setVisibility(View.VISIBLE);
+                glowButton3.setVisibility(Button.VISIBLE);
+            }});*/
+
+
+        /*button4.setOnClickListener(new View.OnClickListener()     //클릭 리스너 - 클릭 가능
+        {
+            @Override
+            public void onClick(View view)   // 버튼 1 클릭시에 색 바꾸고 텍스트 나오게(안전도 넣을꺼)
+            {
+                change_color(button4);
+                textView.setVisibility(View.VISIBLE);
+                glowButton4.setVisibility(Button.VISIBLE);
+            }});*/
+
+
 
         //서버로 부터 동작시간을 계산하고 타이머를 통해 색이 바뀐시점부터 다시 바뀐시점을 기록하여 표기
         TextView line_1 = view.findViewById(R.id.A1_num);
@@ -168,8 +275,9 @@ public class button2Fragment extends Fragment
     //색바꾸는 메서드
     public void change_color(Button btn)
     {
-        btn.setTextColor(Color.BLUE);
+        btn.setTextColor(Color.parseColor("#02F687"));
     }
+
 
     //시간 가동률 계산 메서드
     public int cal_time(float run_time, float stop_time)
@@ -181,4 +289,11 @@ public class button2Fragment extends Fragment
         return result;
     }
 
+
+
+
+
+
+
 }
+

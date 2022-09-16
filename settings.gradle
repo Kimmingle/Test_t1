@@ -13,6 +13,8 @@ dependencyResolutionManagement {
         maven{
             url 'http://jitpack.io'
             allowInsecureProtocol=true
+            maven { url "https://jitpack.io" }
+            maven { url "https://jitpack.io" }
         }
     }
 }
