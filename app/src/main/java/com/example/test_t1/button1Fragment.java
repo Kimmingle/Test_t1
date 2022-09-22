@@ -117,14 +117,14 @@ public class button1Fragment extends Fragment
 
 
 
-        //String path ="/data/user/0/com.example.test_t1/files/sample1.csv"; //애뮬레이터 경로 이건 해당파일이 없어서나는오류 ,이거폰에서 파일넣을방법이 없는듯 엑세스가 안댐
+        String path ="/data/user/0/com.example.test_t1/files/sample1.csv"; //애뮬레이터 경로 이건 해당파일이 없어서나는오류 ,이거폰에서 파일넣을방법이 없는듯 엑세스가 안댐
         // 휴대폰 경로
         //String path ="/내장 메모리/Download/sample1.csv"; //그냥 매니패스트파일에서 선언제대로 안해서 생긴오류..
         //String path = "/내장 메모리/Android/media/sample1.csv";
 
 
         //String path ="/data/com.example.test_t1/files/sample1.csv";
-        String path = "/storage/emulated/0/Android/media/sample1.csv";  //폰
+        //String path = "/storage/emulated/0/Android/media/sample1.csv";  //폰
 
 
         csv_list = read_csv.readCSV(path);
